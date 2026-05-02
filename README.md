@@ -1,45 +1,59 @@
-Automated search across multiple databases and preprint servers to save your time 
-during structured literature search and review.
+# Set You Free
 
-# Features
-* Coherent structure across multiple databases and preprint servers
-* Cross-reference search based on the references of your findings
-* Export to advanced structured literature engines such as Ryyan or [cadima](https://www.cadima.info/)
-* Excludes most duplicates across databases
-* Manual selection based on publication details (see PRISMA)
+Streamlit application for automated structured literature search across multiple databases and preprint servers.
 
-# Demo
+The app is designed to support review workflows by searching external sources, helping with cross-reference search, removing likely duplicates, and exporting results for structured review tools such as Rayyan or CADIMA.
 
-![example image](https://github.com/ChristianGerloff/set-you-free/blob/feature/findpapers-integration/assets/demo.gif)
+## Features
 
+- Search workflow for structured literature review.
+- Cross-reference search based on references found in search results.
+- Duplicate reduction across multiple sources.
+- Study selection and result review pages.
+- Export-oriented workflow for downstream review tools.
 
-# Requirements
-* python > 3.8
-* poetry
+## Repository Layout
 
-# How to start
+- `src/home.py` - Streamlit app entry point.
+- `src/pages/` - Streamlit multipage workflow:
+  - search
+  - study selection
+  - results
+- `src/utils/` - search engine, site configuration, and shared constants.
+- `pyproject.toml` - Poetry project metadata.
+- `poetry.lock` - locked dependency set used for the local `.venv`.
 
-Navigate to the repo folder and start poetry shell
+## Local Setup
+
+```bash
+poetry install --no-root
+poetry run python --version
 ```
-poetry shell
+
+Poetry is configured on this machine to create the virtual environment inside the project as `.venv/`.
+
+## Run
+
+```bash
+poetry run streamlit run src/home.py
 ```
 
-Install the dependencies
-```
-poetry install
-```
+## Dependency Notes
 
-Start the application via streamlit
-```
-streamlit run src/home.py
-```
+- Python 3.10 is currently used for the local `.venv`.
+- The app depends on `findpapers` from the `develop` branch of `ChristianGerloff/findpapers`.
+- `poetry.lock` is intentionally tracked so the app can be recreated more reliably.
+
+## Secrets and Local Configuration
+
+Do not commit API keys, private tokens, or personal search credentials. Keep local configuration in ignored files or environment variables.
 
 ## Authors
 
 Christian Gerloff, Leon Lotter, Kashyap Maheshwari
 
-## How to cite
-If you use `Set You Free` please cite (see Zenodo):
+## Citation
 
+If you use Set You Free, cite:
 
 Gerloff C., Lotter L., & Maheshwari K. (2020). Set You Free: Automated Structured Literature Search.
