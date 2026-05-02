@@ -1,5 +1,8 @@
 # Byte-compiled
 __pycache__/
+*.py[cod]
+.DS_Store
+._*
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
